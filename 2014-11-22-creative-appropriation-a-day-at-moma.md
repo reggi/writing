@@ -10,9 +10,7 @@ What dawned on me early in the day was an intense sense of scale that plays when
 
 The significance of post-impressionism, was that it was the start of a fundamental shift in the way art was made. I never thought about the idea that before photography, art was about representing reality. Photography allowed for a "perfect" representation of realty. It's a scary and inspiring thought that one innovation or a small invention can have an effect on society, and artistic form. I never had the thought that something so seemingly innocent could change the function of art.
 
-This notion that works of art are produced in a linear way, and reference past works and also reference the state of the world in which they were made is a really profound. It's like there's a string that ties every piece together. Each piece creates a story, and is an artifact left with intention. A story that can be traced back to the first cave paintings and handprints.
-
-I've always seen a work of art as this self-contained object, but without context much of meaning is lost, and you're just left with a bunch of subjectively beautiful objects.
+This notion that works of art are produced in a linear way, and reference past works and also reference the state of the world in which they were made is a really profound. It's like there's a string that ties every piece together. Each piece creates a story, and is an artifact left with intention. A story that can be traced back to the first cave paintings and handprints. I've always seen a work of art as this self-contained object, but without context much of meaning is lost, and you're just left with a bunch of subjectively beautiful objects.
 
 Going through the different galleries of the MoMA with a Mandiberg, someone who's explaining the context around the different works was immensely beneficial to my overall understanding of the works. This is very important, instead of hearing or reading about these strings that tie art together I was there, with the original works. This opportunity allowed me to sink into the physical space where they now reside, and in a way allowed me to be apart of this history of the work.
 
