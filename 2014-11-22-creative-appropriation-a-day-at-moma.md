@@ -1,4 +1,4 @@
-# Creative Appropriation: a Day at MoMA
+# Creative Appropriation: A Day at MoMA
 
 Today I attended a class at The Museum of Modern Art, led by [Michael Mandiberg](http://www.mandiberg.com/). The course was titled [Creative Appropriation](http://moma.org/learn/courses/courses#course236), some of the details are [on the MoMA Learning site](http://www.moma.org/learn/moma_learning/blog/creative-appropriation-the-smallest-move-is-often-the-hardest). When I signed up for the class I really had no clue what "Creative Appropriation" or "Art Appropriation" really meant. I had a hunch it had to do with the notions of copying, borrowing, remixing, and sampling, things like that. In reality I had no clue what I was in store for!
 
