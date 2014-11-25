@@ -17,5 +17,6 @@ I learned a whole bunch of new and cool things, I met some cool people, and I ha
 There's a ton of work that goes into planning an event like this. The whole thing was organized by the amazing, David Sheinkopf, the Director of Education at Pioneer Works. He also did a presentation titled "Sensors + Automation with Arduino", which I happened to catch a small bit of. I just wanted to mention thanks to David along with all the presenters, volunteers, and organizers as well as Pioneer Works!
 
 [2014-11-21](#date)
+[2014-11-24](#date)
 [Thomas Reggi](#author)
 [#code, #tech, #software, #programming, #redhook, #pioneerworks, #brooklyn, #art](#tags)
