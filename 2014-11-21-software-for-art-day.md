@@ -10,7 +10,7 @@ One of my favorite talks was about, of all things sheet-metal. The talk was by [
 
 [Ariel Cotton](https://twitter.com/ericcorriel) was talking about Design and Interface. Design these days can mean many things. In her talk, Cotton listed out a slide for each "form" of design user experience design, user interface design, human-computer interaction, web design, industrial design, visual design, and product design. The thing I love about this list is how these all interesect with each other. For instance the "visual design", or branding for a company gets brought into the web design as perhaps a [style guide](http://en.wikipedia.org/wiki/Style_guide).
 
-Cotton also mentioned interface as magic. It's a really strong concenpt that I really love. She used the example of [Amazon's Mega Dropdown](http://bjk5.com/post/44698559168/breaking-down-amazons-mega-dropdown) to explain what a "magical" interface means to her, something smart, intuitive, solves a problem, or offers a good solution.
+Cotton also mentioned interface as magic. It's a really strong concenpt that I really love. She used the example of [Amazon's Mega Dropdown](http://bjk5.com/post/44698559168/breaking-down-amazons-mega-dropdown) to explain what a "magical" interface means to her, something smart, intuitive, and unobtrusive.
 
 She laid out one of the best explanations of the loaded words "design" and "interface" I've ever heard. Then she brought both of these abstract concepts together in an amazing way that made complete sense. Here's a [link to her slides](http://www.slideshare.net/argoncobalt/physical-interaction-design?qid=a3a576bf-974a-4ed7-8135-adf3e8813fbe&v=qf1&b=&from_search=1), they're really great!
 
