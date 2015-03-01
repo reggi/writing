@@ -11,7 +11,7 @@ ES6 code to ES5 using [babelify](https://github.com/babel/babelify).
 
 My dream would be the ability to create a component like this:
 
-_Javascript_
+_Javascript_ : format-date.js
 
 ```
 import Polymer from "polymer"
@@ -23,7 +23,7 @@ Polymer("format-date", {
   }
 });
 ```
-_Template_
+_Template_ : format-date.html
 
 ```
 <polymer-element name="format-date" attributes="time">
@@ -34,7 +34,7 @@ _Template_
 </polymer-element>
 ```
 
-_Usage_
+_Usage_ 
 
 ```
 <format-date time="010215"></format-date>
@@ -49,3 +49,24 @@ Ideally If I vulcanized two components that both use `moment` as a dependency it
 ## Where I got with this
 
 I hit a wall where Babelify and browserify-shim didn't play well together. I posted an issue [thlorenz/browserify-shim#145](https://github.com/thlorenz/browserify-shim/issues/145) talking about it more in depth, and I published my code here [reggi/demo-browserify-polymer-es6](https://github.com/reggi/demo-browserify-polymer-es6).
+
+## Ideal build script
+
+Ideally I can get past the wall described above and have some scripts in `pacakge.json` that do this:
+
+```
+"scripts": {
+    "vulcanize": "vulcanize format-date.html --inline --csp vulcanize.js && cat vulcanized.html",
+    "browserify": "browserify vulcanized.js -t [browserify-shim babel] > main.js",
+    "vulcanizeify": "nom run vulcanize && nom run browserify"
+}
+```
+
+Then `nom run vulcanizeify` would do the following:
+
+* concatenate all javascripts exporting `vulcanized.html` and `vulcanize.js` 
+* browserify `vulcanize.js`
+  * shims `polymer`
+  * transpiles es6
+  
+ 
