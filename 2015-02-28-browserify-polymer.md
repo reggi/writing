@@ -62,7 +62,7 @@ Ideally I can get past the wall described above and have some scripts in `pacakg
 }
 ```
 
-Then `nom run vulcanizeify` would do the following:
+Then `npm run vulcanizeify` would do the following:
 
 * concatenate all javascripts exporting `vulcanized.html` and `vulcanize.js` 
 * browserify `vulcanize.js`
