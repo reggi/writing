@@ -56,7 +56,7 @@ Ideally I can get past the wall described above and have some scripts in `pacakg
 
 ```
 "scripts": {
-    "vulcanize": "vulcanize format-date.html --inline --csp vulcanize.js && cat vulcanized.html",
+    "vulcanize": "vulcanize format-date.html --inline --csp vulcanize.js",
     "browserify": "browserify vulcanized.js -t [browserify-shim babel] > main.js",
     "vulcanizeify": "nom run vulcanize && nom run browserify"
 }
