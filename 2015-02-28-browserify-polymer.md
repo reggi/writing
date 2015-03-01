@@ -2,11 +2,11 @@
 
 _Saturday, February 28, 2015 at 9:39:05 PM_
 
-Here's a little background context: I have one project that uses [RequireJS](http://requirejs.org/) and I just moved it to [Browserify](https://github.com/substack/node-browserify). This project also uses a [polymer](https://github.com/polymer/polymer) component. 
+Here's a little background context: I have one project that uses [RequireJS](http://requirejs.org/) and I just moved it to [Browserify](https://github.com/substack/node-browserify). This project also uses a [polymer](https://github.com/polymer/polymer) component.
 
 [Vulcanize](https://github.com/polymer/vulcanize) is a comand-line-interface the works with polymer components, it concatenates them all into one file.  I noticed that it has a flag `--inline --csp`, which allows you to "Bundle all javascript (inline and external) into <output file name>.js".
 
-The idea is to take this javascript file of the code for all your polymer components and add it to the rest of the site code with browserify. Then it hit me, during this process you could transpile 
+The idea is to take this javascript file of the code for all your polymer components and add it to the rest of the site code with browserify. Then it hit me, during this process you could transpile
 ES6 code to ES5 using [babelify](https://github.com/babel/babelify).
 
 My dream would be the ability to create a component like this:
@@ -42,8 +42,10 @@ _Usage_
 
 This would create a little bit of a problem with the ecosystem of how polymer components work.
 
-When I publish this do I include a complied version of the javascript file? Including moment? Do I use `bower` and a [`browseify- shim`](https://github.com/thlorenz/browserify-shim) to include `moment`? Do I use `npm` to include `moemnt`? 
+When I publish this do I include a complied version of the javascript file? Including moment? Do I use `bower` and a [`browseify- shim`](https://github.com/thlorenz/browserify-shim) to include `moment`? Do I use `npm` to include `moemnt`?
 
-Ideally If I vulcanized two components that both use `moment` as a dependency it's only included once. 
+Ideally If I vulcanized two components that both use `moment` as a dependency it's only included once.
 
-Where I got with this:
+## Where I got with this
+
+I hit a wall where Babelify and browserify-shim didn't play well together. I posted an issue [thlorenz/browserify-shim#145](https://github.com/thlorenz/browserify-shim/issues/145) talking about it more in depth, and I published my code here [reggi/demo-browserify-polymer-es6](https://github.com/reggi/demo-browserify-polymer-es6).
