@@ -69,7 +69,7 @@ Then `npm run vulcanizeify` would do the following:
   * shims `polymer`
   * transpiles es6
   
- ## Progress is great!
+## Progress is great!
 
 I just published this:
 
