@@ -58,7 +58,7 @@ Ideally I can get past the wall described above and have some scripts in `pacakg
 "scripts": {
     "vulcanize": "vulcanize format-date.html --inline --csp vulcanize.js",
     "browserify": "browserify vulcanized.js -t [browserify-shim babel] > main.js",
-    "vulcanizeify": "nom run vulcanize && nom run browserify"
+    "vulcanizeify": "npm run vulcanize && npm run browserify"
 }
 ```
 
@@ -69,4 +69,12 @@ Then `npm run vulcanizeify` would do the following:
   * shims `polymer`
   * transpiles es6
   
- 
+ ## Progress is great!
+
+I just published this:
+
+https://github.com/reggi/demo-browserify-polymer
+
+It's everything working together without es6 (which is being a huge pain in the butt). 
+
+Read more about it in the docs! 
