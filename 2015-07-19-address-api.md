@@ -26,7 +26,7 @@ The web is a vibrant and thriving place. While there may be a ton of advancement
   - [`User`](#user)
   - [`App-Api`](#app-api)
   - [`Third-Party-App`](#third-party-app)
-- [`Site`](#site)
+  - [`Site`](#site)
 - [Mockups](#mockups)
   - [Mail app site and dashboard](#mail-app-site-and-dashboard)
   - [User request: Recipient](#user-request-recipient)
@@ -85,7 +85,7 @@ The numbered line is the privilege and the line below is what the `User` would a
 3. They can ask a `User` for a `Address` on behalf of a `User`.
   * Can `Third-Party-App` `Example App` send you mail on behalf of `User` `Thomas Reggi`?
 
-## `Site`
+### `Site`
 
 A `Site` is a `Third-Party-App` where the url has been verified. For example if an employee at `jcrew.com` wanted to integrate the `App` into their store, they would want to be represented as `jcrew.com` so they would follow the steps for [TXT Record Domain Verification](https://en.wikipedia.org/wiki/TXT_Record). Without this feature if someone squatted on the `Third-Party-App` name `jcrew` then the real `jcrew` would be out of luck. Plus the verification means we could show the visually show that the `Site` is a verfied which midigates [Phishing](https://en.wikipedia.org/wiki/Phishing).
 
