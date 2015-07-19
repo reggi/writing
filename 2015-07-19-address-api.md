@@ -158,7 +158,7 @@ These Events lead to [`User`-to-`User` Authorize](#user-to-user-authorize)
 
 ### `User` to `User` Authorize
 
-These events are the effect from [`User`-to-`User` Authorize](#user-to-user-authorize)
+These events are the effect from [`User`-to-`User` Request](#user-to-user-request)
 
 1. User receiving email message to provide access to their address
 2. Login or signup. If already logged in redirect's to next page.
