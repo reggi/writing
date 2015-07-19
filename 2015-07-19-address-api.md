@@ -1,6 +1,6 @@
-# A site for managing and distributing your addresses
+# Centralized place for your addresses and mail
 
-> tl;dr Idea for a web app that allows you to login and save your address. Then have the ability to connect your addresses across multiple sites in a centralized fashion. Think facebook connect for addresses.
+> tl;dr Idea for a web app that allows you to login and save your address. Then have the ability to connect your addresses across multiple sites in a centralized fashion. Think facebook connect for addresses. Every site that needs your address (this e-commerce) would have a "connect" button that would authorize access to a specific address. Third-party apps would request your latest address whenever they want to send you something.
 
 The web is a vibrant and thriving place. While there may be a ton of advancement happening every day to make our lives easier, some of the things we do everyday are still traditional and repetitive. One of those things is managing and distributing our physical addresses. How can we make managing addresses easier across the entire web? This document is a specification of how there could be a service to help rectify this very issue.
 
