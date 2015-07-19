@@ -1,4 +1,4 @@
-# A hub for managing and distributing your addresses
+# A site for managing and distributing your addresses
 
 > tl;dr Idea for a web app that allows you to login and save your address. Then have the ability to connect your addresses across multiple sites in a centralized fashion. Think facebook connect for addresses.
 
@@ -14,7 +14,7 @@ The third major problem is privacy. With this app you'll be able to list who has
 
 ## Contents
 
-- [Membership Schema](#membership-schema)
+- [Membership](#membership)
   - The membership schema is a list of the different types of accounts there are and the different capabilities and privileges they have.
 - [Mockups](#mockups)
   - Mockups are examples of webpages and the flow from one to the next.
@@ -41,7 +41,7 @@ The third major problem is privacy. With this app you'll be able to list who has
   - [Managing parcel / address requests](#managing-parcel--address-requests)
   - [Managing addresses](#managing-addresses)
 
-## Membership Schema
+## Membership
 
 There are three different types of memberships `Site`, `Apps`, `Users`.
 
