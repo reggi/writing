@@ -12,7 +12,7 @@ The second major problem is tied to the first. When you place an order online, i
 
 The third major problem is privacy. With this app you'll be able to list who has had access to an address, when, what address, and how frequently. You can even block other users, apps, or sites, from requesting your address.
 
-## Whats next
+## Contents
 
 This document is broken up into a couple of parts.
 
