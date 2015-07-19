@@ -14,16 +14,32 @@ The third major problem is privacy. With this app you'll be able to list who has
 
 ## Contents
 
-This document is broken up into a couple of parts.
-
-* Membership Schema
-  * The membership schema is a list of the different types of accounts there are and the different capabilities and privileges they have.
-* Mockups
-  * Mockups are examples of webpages and the flow from one to the next.
-* API
-  * The API describes a bit about how some of the data comes into the app technically.
-* Dashboard
-  * The dashboard demonstrates the type of information that the user would have on their end.
+- [Membership Schema](#membership-schema)
+  - The membership schema is a list of the different types of accounts there are and the different capabilities and privileges they have.
+- [Mockups](#mockups)
+  - Mockups are examples of webpages and the flow from one to the next.
+  - [Mail app site and dashboard](#mail-app-site-and-dashboard)
+  - [User request: Recipient](#user-request-recipient)
+  - [User request: Potential Sender](#user-request-potential-sender)
+  - [App Login: E-Commerce Checkout](#app-login-e-commerce-checkout)
+  - [App Login: E-Commerce Platform Checkout](#app-login-e-commerce-platform-checkout)
+  - [Send mail](#send-mail)
+  - [App's request address on behalf of user](#apps-request-address-on-behalf-of-user)
+  - [Else not shown here](#else-not-shown-here)
+- [API](#api)
+  - The API describes a bit about how some of the data comes into the app technically.
+  - [Send mail: `get address` request](#send-mail-get-address-request)
+    - [Buffer Time](#buffer-time)
+    - [Message](#message)
+    - [Example](#example)
+  - [Send mail: `mail sent` request](#send-mail-mail-sent-request)
+    - [Id](#id)
+    - [Tracking information](#tracking-information)
+    - [Example](#example-1)
+- [Dashboard](#dashboard)
+  - The dashboard demonstrates the type of information that the user would have on their end.
+  - [Managing parcel / address requests](#managing-parcel--address-requests)
+  - [Managing addresses](#managing-addresses)
 
 ## Membership Schema
 
@@ -319,9 +335,9 @@ Response:
 {}
 ```
 
-### Dashboard
+## Dashboard
 
-#### Managing parcel / address requests
+### Managing parcel / address requests
 
 From this menu you can access each request ideally filter out some of this infromation so you can better manage it.
 
@@ -359,7 +375,7 @@ Features:
     * Parcel has been shipped
 ```
 
-#### Managing addresses
+### Managing addresses
 
 ```
 - "Office"
