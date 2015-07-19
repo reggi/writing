@@ -6,7 +6,7 @@ The web is a vibrant and thriving place. While there may be a ton of advancement
 
 ## Current Problems
 
-1. Every site stores your address on it's own servers. That means it's decentralized. Let's say you move where you live, you can't just update your address in one place and have this change for every site.
+1. Every site stores your address on it's own servers. That means it's decentralized. Let's say you move where you live, you can't just update your address in one place and have this change for every site. If you signup for a new service you have to type the whole thing in again.
 
 2. When you place an order online, if you enter the wrong address (which would happen less frequently with this service) you have an allotted amount of time before that order ships, I call this time the `buffer time`. This service aims to help manage this with a high level of efficiency and detail. Currently the only way to change an address on most sites is to get in touch with a person directly, and have them check if the orders been processed by a fulfillment warehouse and manually update an address if not. Some sites do urge that you verification your address in an `order confirmation` email. Some provide a way to change your address programmatically after order creation. But still the `buffer time` isn't standardized, and it's not the same for every site.
 
