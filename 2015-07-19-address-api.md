@@ -40,7 +40,7 @@ The web is a vibrant and thriving place. While there may be a ton of advancement
     - [`buffer_time`](#buffer_time)
     - [Message](#message)
     - [Example](#example)
-  - [`mail_sent.json`](#mail_sentjson)
+  - [`/mail_sent.json`](#mail_sentjson)
     - [`id`](#id)
     - [`tracking`](#tracking)
     - [Example](#example-1)
