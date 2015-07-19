@@ -282,7 +282,7 @@ A `Third-Party-App` is software that runs on a server. It could have urls like `
 
 Let me give an analogy.
 
-Let's say your a `comic book aficionado` and you always like to get the most recent comic book from the `comic book shop` as soon as it arrives. You pickup the telephone and tell the clerk give me a call whenever an issue of a specific comic comes in (lets say `superman`). The clerk says, alright, will do, and hangs up the phone. You wait patiently with you phone on and close by for a call. Ring! Ring! You pickup the phone, and it's the clerk and he tells you there's a new comic in issue #23 just arrived.
+Let's say your a `comic book aficionado` and you always like to get the most recent comic book from the `comic book shop` as soon as it arrives. You pickup the telephone and tell the clerk give me a call whenever an issue of a specific comic comes in (lets say `superman`). The clerk says, alright, will do, and hangs up the phone. You wait patiently with your phone on and close by for a call. Ring! Ring! You pickup the phone, and it's the clerk and he tells you there's a new comic in issue #23 just arrived.
 
 In this analogy the `comic book aficionado` is the `Third-Party-App`, the `comic book shop` is the `App`. The act of pickup on the phone telling the clerk what comic you'd like is called `subscribing to a webhook` the webhook itself is `superman`. The clerk saying alright is subscribing being a success. You waiting patiently is the `Third-Party-Apps` having a open url and being able to accept requests to it's server. You picking up the phone is the `Third-Party-App` responding to the `webhook` request. Lastly the clerk telling you what issue is the `webhook payload`.
 
