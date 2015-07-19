@@ -1,25 +1,33 @@
 # Centralized Place for Your Addresses and Mail
 
-> tl;dr Idea for a web app that allows you to login and save your address. Then have the ability to connect your addresses across multiple sites in a centralized fashion. Think facebook connect for addresses. Every site that needs your address (this e-commerce) would have a "connect" button that would authorize access to a specific address. Third-party apps would request your latest address whenever they want to send you something.
+> tl;dr Idea for a web app that allows you to login and save your address. Then have the ability to connect your addresses across multiple sites in a centralized fashion. Think facebook connect for addresses. Every site that needs your address (think e-commerce) would have a "connect" button that would assign an address from a possible list. Third-party apps would request your latest address whenever they want to send you something.
 
-The web is a vibrant and thriving place. While there may be a ton of advancement happening every day to make our lives easier, some of the things we do everyday are still traditional and repetitive. One of those things is managing and distributing our physical addresses. How can we make managing addresses easier across the entire web? This document is a specification of how there could be a service to help rectify this very issue.
+The web is a vibrant and thriving place. While there may be a ton of advancement happening every day to make our lives easier, some of the things we do everyday are still traditional and repetitive. One of those things is managing and distributing our physical addresses. How can we make managing addresses easier across the entire web? This document is a specification for a service to rectify this very issue.
 
 ## Problems
 
 1. Every site stores your address on it's own servers. That means it's decentralized. Let's say you move where you live, you can't just update your address in one place and have this change for every site.
 
-2. When you place an order online, if you enter the wrong address (which would happen less frequently with this service) you have an allotted amount of time before that order ships, I call this time the `buffer time`. This service aims to help manage this with a high level of efficiency and detail. Currently the only way to change an address on most sites is to get in touch with a person directly, and have them do some manual process to update an address.
+2. When you place an order online, if you enter the wrong address (which would happen less frequently with this service) you have an allotted amount of time before that order ships, I call this time the `buffer time`. This service aims to help manage this with a high level of efficiency and detail. Currently the only way to change an address on most sites is to get in touch with a person directly, and have them check if the orders been processed by a fulfillment warehouse and manually update an address if not. Some sites do urge that you verification your address in an `order confirmation` email. Some provide a way to change your address programmatically after order creation. But still the `buffer time` isn't standardized, and it's not the same for every site.
 
-3. Privacy. With this app you'll be able to list who has had access to an address, when, what address, and how frequently. You can even block other users, apps, or sites, from requesting your address.
+3. Privacy. When using the service you'll be able to list who has had access to an address, when, what address, and how frequently. You can even block other users, apps, or sites, from requesting your latest address.
 
-4. Have you ever wanted to send someone physical mail and you didn't know their address? This solves that, for everyone, and eventually it might not be weird. Once they recipient has their address in the system, they never have to write it again. Only approve access to other users.
+4. Have you ever wanted to send someone physical mail and you didn't know their address? This solves that, for everyone, and eventually it might not be weird. Once the recipient has their address in the system, they never have to write it again. Only approve access to other users.
 
 ## Contents
 
-- [Membership](#membership)
-  - The membership schema is a list of the different types of accounts there are and the different capabilities and privileges they have.
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Definitions](#definitions)
+  - [`App`](#app)
+  - [`Request`](#request)
+  - [`User`](#user)
+  - [`App-Api`](#app-api)
+  - [`Third-Party-App`](#third-party-app)
+- [`Site`](#site)
 - [Mockups](#mockups)
-  - Mockups are examples of webpages and the flow from one to the next.
   - [Mail app site and dashboard](#mail-app-site-and-dashboard)
   - [User request: Recipient](#user-request-recipient)
   - [User request: Potential Sender](#user-request-potential-sender)
@@ -29,7 +37,6 @@ The web is a vibrant and thriving place. While there may be a ton of advancement
   - [App's request address on behalf of user](#apps-request-address-on-behalf-of-user)
   - [Else not shown here](#else-not-shown-here)
 - [API](#api)
-  - The API describes a bit about how some of the data comes into the app technically.
   - [Send mail: `get address` request](#send-mail-get-address-request)
     - [Buffer Time](#buffer-time)
     - [Message](#message)
@@ -39,29 +46,65 @@ The web is a vibrant and thriving place. While there may be a ton of advancement
     - [Tracking information](#tracking-information)
     - [Example](#example-1)
 - [Dashboard](#dashboard)
-  - The dashboard demonstrates the type of information that the user would have on their end.
   - [Managing parcel / address requests](#managing-parcel--address-requests)
   - [Managing addresses](#managing-addresses)
 
-## Membership
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-There are three different types of memberships `Site`, `Apps`, `Users`.
+## Definitions
 
-* `Site` (ex. `jcrew.com`)
-  * is an `App` with a verified url
-  * can contain return address `Address`
-  * can request address from `User` directly
-  * can request address from `User` via another `User`
-* `App` (ex. `SITEMAIL`)
-  * is an `App` without verified url
-  * can contain return address `Address`
-  * can request address from `User` via another `User`
-  * can request address from `User` on behalf of another `User` (the requesting `User` will never see the address or send the mail themselves)
-* `User` (ex. `thomasreggi`)
-  * can have many `Apps`.
-  * can request address from `User` directly
-  * can contain return address `Address`
-  * can contain `Address`
+### `App`
+
+Whenever I refer to `App` I mean everything written in this document including the finished software and the idea. Usually referred to as "the `App`".
+
+### `Request`
+
+The term `Request` is used a lot in the following sections. It generally means to send something digitally. It may mean to ask for something digitally as well.
+
+### `User`
+
+A `User` is a person, just like you and me. They have the ability to create a `Third-Party-App` or a `Site`.
+
+1. They can ask a `User` for a `Address`.
+  * Can `User` `Thomas Reggi` access your address to send you mail?
+
+### `App-Api`
+
+The `App-Api` publicly available (through [oAuth](http://oauth.net/) and cryptography) set of urls on the server that allow a `Third-Party-App` to connect to the `App`. When connected the `Third-Party-App` has access to `Actions` and `Data`. For instance making a request to the endpoint `http://App.com/api/address/thomasreggi.json` would get the `Addresses` for the `User` `thomasreggi` in the `.json` format.
+
+### `Third-Party-App`
+
+A `Third-Party-App` is a software created as a service that utilizes the `App-Api` to interact with the `App`. They can contain their own `Addresses`.
+
+The numbered line is the privilege and the line below is what the `User` would approve or decline.
+
+1. They can ask a `User` for a `Address`.
+  * Can `Third-Party-App` `Example App` access your address to send you mail?
+2. They can ask a `User` for a `Address` for a `User`.
+  * Can `Third-Party-App` `Example App` give your address to `User` `Thomas Reggi` so they can to send you mail?
+3. They can ask a `User` for a `Address` on behalf of a `User`.
+  * Can `Third-Party-App` `Example App` send you mail on behalf of `User` `Thomas Reggi`?
+
+## `Site`
+
+A `Site` is a `Third-Party-App` where the url has been verified. For example if an employee at `jcrew.com` wanted to integrate the `App` into their store, they would want to be represented as `jcrew.com` so they would follow the steps for [TXT Record Domain Verification](https://en.wikipedia.org/wiki/TXT_Record). Without this feature if someone squatted on the `Third-Party-App` name `jcrew` then the real `jcrew` would be out of luck. Plus the verification means we could show the visually show that the `Site` is a verfied which midigates [Phishing](https://en.wikipedia.org/wiki/Phishing).
+
+The options are the same, the message is a little different.
+
+1. They can ask a `User` for a `Address`.
+  * Can `Site` `amazon.com` access your address to send you mail?
+2. They can ask a `User` for a `Address` for a `User`.
+  * Can `Site` `amazon.com` give your address to `User` `Thomas Reggi` so they can to send you mail?
+3. They can ask a `User` for a `Address` on behalf of a `User`.
+  * Can `Site` `amazon.com` send you mail on behalf of `User` `Thomas Reggi`?
+
+Amazon is the perfect example for this because they allow all three. Not all sites need all three, but that's ok.
+
+Here's where Amazon correlates.
+
+1. Buy something from Amazon. (ex. Kindle)
+2. Buy something from a Amazon seller, where they manage their inventory. (ex. Used Book)
+3. Buy something from a Amazon seller, where amazon fulfillment manages their inventory.
 
 ## Mockups
 
