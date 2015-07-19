@@ -59,7 +59,7 @@ Whenever I refer to `App` I mean everything written in this document including t
 
 ### `Request`
 
-The term `Request` is used a lot in the following sections. It generally means to send something digitally. It may mean to ask for something digitally as well.
+The term `Request` is used a lot in the following sections. It may mean to send something digitally, like "sending a request", which is the same as "sending the data". And it may also mean to ask for something digitally as well, as in "request the address", which is the same as "ask for the data".
 
 ### `User`
 
