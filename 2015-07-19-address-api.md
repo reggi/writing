@@ -38,7 +38,7 @@ The web is a vibrant and thriving place. While there may be a ton of advancement
   - [What is a `webhook`?](#what-is-a-webhook)
   - [`/get-address.json`](#get-addressjson)
     - [`buffer_time`](#buffer_time)
-    - [Message](#message)
+    - [`message`](#message)
     - [Example](#example)
   - [`/mail_sent.json`](#mail_sentjson)
     - [`id`](#id)
@@ -300,9 +300,9 @@ This all allows for the following. When an address is updated by the user then t
 
 Again this would only work if the `Third-Party-App` has `buffer_time` enabled and is subscribed to update address `webhook`.
 
-#### Message
+#### `message`
 
-The `message` is a required field that is visible to the user for every request.
+The `message` is a required (perhaps not for `User`-`User`) field that is visible to the user for every request.
 
 #### Example
 
