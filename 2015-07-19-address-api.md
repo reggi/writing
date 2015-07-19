@@ -4,7 +4,7 @@
 
 The web is a vibrant and thriving place. While there may be a ton of advancement happening every day to make our lives easier, some of the things we do everyday are still traditional and repetitive. One of those things is managing and distributing our physical addresses. How can we make managing addresses easier across the entire web? This document is a specification for a service to rectify this very issue.
 
-## Problems
+## Current Problems
 
 1. Every site stores your address on it's own servers. That means it's decentralized. Let's say you move where you live, you can't just update your address in one place and have this change for every site.
 
@@ -35,6 +35,7 @@ The web is a vibrant and thriving place. While there may be a ton of advancement
   - [`Site` for `User` to `User` Request-Authorize](#site-for-user-to-user-request-authorize)
   - [`Third-Party-App` on behalf of user `User` for `User`](#third-party-app-on-behalf-of-user-user-for-user)
 - [API](#api)
+  - [What is a `webhook`?](#what-is-a-webhook)
   - [Send mail: `get address` request](#send-mail-get-address-request)
     - [Buffer Time](#buffer-time)
     - [Message](#message)
