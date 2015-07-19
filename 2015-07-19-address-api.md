@@ -34,7 +34,7 @@ There are three different types of memberships `Site`, `Apps`, `Users`.
   * can contain return address `Address`
   * can request address from `User` directly
   * can request address from `User` via another `User`
-* `App` (ex. `fanmail`)
+* `App` (ex. `SITEMAIL`)
   * is an `App` without verified url
   * can contain return address `Address`
   * can request address from `User` via another `User`
