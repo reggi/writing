@@ -36,13 +36,13 @@ The web is a vibrant and thriving place. While there may be a ton of advancement
   - [`Third-Party-App` on behalf of `User` for `User`](#third-party-app-on-behalf-of-user-for-user)
 - [API](#api)
   - [What is a `webhook`?](#what-is-a-webhook)
-  - [Send mail: `get address` request](#send-mail-get-address-request)
-    - [Buffer Time](#buffer-time)
+  - [`/get-address.json`](#get-addressjson)
+    - [`buffer_time`](#buffer_time)
     - [Message](#message)
     - [Example](#example)
-  - [Send mail: `mail sent` request](#send-mail-mail-sent-request)
-    - [Id](#id)
-    - [Tracking information](#tracking-information)
+  - [`mail_sent.json`](#mail_sentjson)
+    - [`id`](#id)
+    - [`tracking`](#tracking)
     - [Example](#example-1)
 - [Dashboard](#dashboard)
   - [Managing parcel / address requests](#managing-parcel--address-requests)
@@ -288,11 +288,11 @@ In this analogy the `comic book aficionado` is the `Third-Party-App`, the `comic
 
 What's the alternative to this anology? If `the comic book shop` clerk wasn't so nice to give you a call, and assuming they still had a telephone. You would have to call everyday, perhaps even multiple times a day. That's pretty inefficient and time-consuming. When it's code you can make these kinds of requests a thousand times a minute, this means a lot of requests come back with no new data. This is what most servers and still do back when RSS was all the rage and it's really inefficient.
 
-### Send mail: `get address` request
+### `/get-address.json`
 
 When a third party requests an address for instance on the checkout page of a store, I click the button and provide access. There's information that goes along with that request. The store needs to provide some information.
 
-#### Buffer Time
+#### `buffer_time`
 
 Remember when I  mentioned `buffer time` the time that it takes for a store, vendor, supplier to ship something? This is where that comes in. If you go to mockup for [`Site` to `User` Request-Authorize](#site-to-user-request-authorize) the `buffer time` would be displayed to the user in page 3, it would say something like. You have 3 days to change your address.
 
@@ -324,15 +324,15 @@ Response:
 ```
 
 
-### Send mail: `mail sent` request
+### `mail_sent.json`
 
 The `mail sent` request must be sent sometime following a `get address` request. An`Third-Party-App` (or `Site`) will not be able to request an updated address until they send this request.
 
-#### Id
+#### `id`
 
 `Id` is a required field, the `App` or site must store the id and use it for this.
 
-#### Tracking information
+#### `tracking`
 
 Tracking information can be inserted into this request and will be shown to the user.
 
