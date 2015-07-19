@@ -12,7 +12,7 @@ The web is a vibrant and thriving place. While there may be a ton of advancement
 
 3. Privacy. When using the service you'll be able to list who has had access to an address, when, what address, and how frequently. You can even block other users, apps, or sites, from requesting your latest address.
 
-4. Have you ever wanted to send someone physical mail and you didn't know their address? This solves that, for everyone, and eventually it might not be weird. Once the recipient has their address in the system, they never have to write it again. Only approve access to other users.
+4. Have you ever wanted to send someone physical mail and you didn't know their address? This solves that, for everyone, and eventually it might not be weird. Once the recipient has their address in the system, they never have to write it again. Have you ever needed to ask for 100+ of your addresses to send out a wedding invitiaions? How do you manage all of that? This service aims to fix this, have your address in the system? Great! All you need to do is grant access to other users. Not in yet? Add it for the first time, then grant access.
 
 ## Contents
 
