@@ -33,7 +33,7 @@ The web is a vibrant and thriving place. While there may be a ton of advancement
   - [`User` to `User` Authorize](#user-to-user-authorize)
   - [`Site` to `User` Request-Authorize](#site-to-user-request-authorize)
   - [`Site` for `User` to `User` Request-Authorize](#site-for-user-to-user-request-authorize)
-  - [`Third-Party-App` on behalf of user `User` for `User`](#third-party-app-on-behalf-of-user-user-for-user)
+  - [`Third-Party-App` on behalf of `User` for `User`](#third-party-app-on-behalf-of-user-for-user)
 - [API](#api)
   - [What is a `webhook`?](#what-is-a-webhook)
   - [Send mail: `get address` request](#send-mail-get-address-request)
@@ -228,7 +228,7 @@ These events are the effect from [`User`-to-`User` Authorize](#user-to-user-auth
 +---------------------------+   +---------------------------+   +---------------------------+
 ```
 
-### `Third-Party-App` on behalf of user `User` for `User`
+### `Third-Party-App` on behalf of `User` for `User`
 
 This is an idea for an `Third-Party-App` called `Send Mail`.
 
