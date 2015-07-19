@@ -28,14 +28,12 @@ The web is a vibrant and thriving place. While there may be a ton of advancement
   - [`Third-Party-App`](#third-party-app)
   - [`Site`](#site)
 - [Mockups](#mockups)
-  - [Mail app site and dashboard](#mail-app-site-and-dashboard)
-  - [User request: Recipient](#user-request-recipient)
-  - [User request: Potential Sender](#user-request-potential-sender)
-  - [App Login: E-Commerce Checkout](#app-login-e-commerce-checkout)
-  - [App Login: E-Commerce Platform Checkout](#app-login-e-commerce-platform-checkout)
-  - [Send mail](#send-mail)
-  - [App's request address on behalf of user](#apps-request-address-on-behalf-of-user)
-  - [Else not shown here](#else-not-shown-here)
+  - [`App` Homepage & Dashboard](#app-homepage-&-dashboard)
+  - [`User` to `User` Request](#user-to-user-request)
+  - [`User` to `User` Authorize](#user-to-user-authorize)
+  - [`Site` to `User` Request-Authorize](#site-to-user-request-authorize)
+  - [`Site` for `User` to `User` Request-Authorize](#site-for-user-to-user-request-authorize)
+  - [`Third-Party-App` on behalf of user `User` for `User`](#third-party-app-on-behalf-of-user-user-for-user)
 - [API](#api)
   - [Send mail: `get address` request](#send-mail-get-address-request)
     - [Buffer Time](#buffer-time)
@@ -108,13 +106,13 @@ Here's where Amazon correlates.
 
 ## Mockups
 
-Below are mockups that describe different webpages and the flow from one page to the next. Each square is a figure, they move from left to right, you might need to scroll to the right to see some of them.
+Below are mockups that describe different webpages and the flow from one page to the next. Each square is a page, they move from left to right, you might need to scroll to the right to see some of them.
 
-### Mail app site and dashboard
+### `App` Homepage & Dashboard
 
-* Figure 1. View Homeapge
-* Figure 2. Login to the app, if not already logged in.
-* Figure 3. View Dashbaord
+1. View Homeapge
+2. Login or signup. If already logged in redirect's to next page.
+3. View dashboard
 
 ```
 +---------------------------+   +---------------------------+   +---------------------------+
@@ -133,36 +131,12 @@ Below are mockups that describe different webpages and the flow from one page to
 +---------------------------+   +---------------------------+   +---------------------------+
 ```
 
-### User request: Recipient
+### `User` to `User` Request
 
-* Figure 1. User receiving email message to provide access to their address
-* Figure 2. Login to the app, if not already logged in.
-* Figure 3. Approve and select address or deny request.
+1. Request addresses from user email (will be asked to signup / login)
+2. Shows list of Pending Requests.
 
-In this case this is a direct user-to-user connection where one user is requesting another's address.
-
-```
-+---------------------------+   +---------------------------+   +---------------------------+
-|gmail.com                  |   |Mail App: Login            |   |Mail App: Authorize        |
-+---------------------------+   +---------------------------+   +---------------------------+
-|    |                      |   |                           |   |                           |
-|    | user thomasreggi     |   | Username:                 |   |    user thomasreggi       |
-|    | would like to        |   | +-----------------------+ |   |    would like to          |
-|    | access your address  |   | +-----------------------+ |   |    access your address    |
-|    |                      |==>| Password:                 |==>|                           |==> ?
-|    | [login]              |   | +-----------------------+ |   |  * [approve]              |
-|    |                      |   | +-----------------------+ |   |  - [address dropdown]     |
-|    |                      |   |                           |   |  - [auto-accept requests] |
-|    |                      |   |      [sign-up] or [login] |   |  * [decline]              |
-|    |                      |   |                           |   |                           |
-+----+----------------------+   +---------------------------+   +---------------------------+
-```
-
-### User request: Potential Sender
-
-* Figure 1. Request addresses from user email (will be asked to signup / login)
-* Figure 2. Shows list of Pending Requests.
-* These Events lead to `User request: Recipient`
+These Events lead to [`User`-to-`User` Authorize](#user-to-user-authorize)
 
 ```
 +---------------------------+   +---------------------------+
@@ -181,13 +155,37 @@ In this case this is a direct user-to-user connection where one user is requesti
 +---------------------------+   +---------------------------+
 ```
 
-### App Login: E-Commerce Checkout
+### `User` to `User` Authorize
 
-* Figure 1. User is checking out on a website and needs to connect address, signs in.
-* Figure 2. Login to the app, if not already logged in.
-* Figure 3. Approve and select address or deny request.
+These events are the effect from [`User`-to-`User` Authorize](#user-to-user-authorize)
 
-This is a site requesting a users address. A site is is a property of a user account. Sites are just like apps. Sites are verified. Sites can only request address they don't contain their own addresses. This means that registered sites like `crateandbarrel.com`, `amazon.com`, `jcrew.com` can register and verify their sites and use their real names.
+1. User receiving email message to provide access to their address
+2. Login or signup. If already logged in redirect's to next page.
+3. Approve and select address or deny request.
+
+```
++---------------------------+   +---------------------------+   +---------------------------+
+|gmail.com                  |   |Mail App: Login            |   |Mail App: Authorize        |
++---------------------------+   +---------------------------+   +---------------------------+
+|    |                      |   |                           |   |                           |
+|    | user thomasreggi     |   | Username:                 |   |    user thomasreggi       |
+|    | would like to        |   | +-----------------------+ |   |    would like to          |
+|    | access your address  |   | +-----------------------+ |   |    access your address    |
+|    |                      |==>| Password:                 |==>|                           |==> ?
+|    | [login]              |   | +-----------------------+ |   |  * [approve]              |
+|    |                      |   | +-----------------------+ |   |  - [address dropdown]     |
+|    |                      |   |                           |   |  - [auto-accept requests] |
+|    |                      |   |      [sign-up] or [login] |   |  * [decline]              |
+|    |                      |   |                           |   |                           |
++----+----------------------+   +---------------------------+   +---------------------------+
+```
+
+
+### `Site` to `User` Request-Authorize
+
+1. `User` is checking out on a website and needs to connect address, signs in.
+2. Login to the `App`, if not already logged in.
+3. Approve `Site` and select address or deny request.
 
 ```
 +---------------------------+   +---------------------------+   +---------------------------+
@@ -206,13 +204,11 @@ This is a site requesting a users address. A site is is a property of a user acc
 +---------------------------+   +---------------------------+   +---------------------------+
 ```
 
-### App Login: E-Commerce Platform Checkout
+### `Site` for `User` to `User` Request-Authorize
 
-* Figure 1. User is checking out on a website and needs to connect address, signs in.
-* Figure 2. Login to the app, if not already logged in.
-* Figure 3. Approve and select address or deny request.
-
-Some platforms out there connect two users together (`etsy.com`, `ebay.com`, `amazon.com`). For instance when you purchase something from `ebay.com` you give your address to the ebay platform, and a user on ebay receives the address and ships the product with it. In this case `ebay.com` would have to allow the seller to register their account and connect the two users.
+1. `User` is checking out on a website and needs to connect address, signs in.
+2. Login to the `App`, if not already logged in.
+3. Approve and select address or deny request.
 
 ```
 +---------------------------+   +---------------------------+   +---------------------------+
@@ -231,25 +227,21 @@ Some platforms out there connect two users together (`etsy.com`, `ebay.com`, `am
 +---------------------------+   +---------------------------+   +---------------------------+
 ```
 
-### Send mail
+### `Third-Party-App` on behalf of user `User` for `User`
 
-This is an idea for an app called `Send Mail` an app that connects to the `Mail App API` could be made by a third-party or the same creator as `Mail App`.
+This is an idea for an `Third-Party-App` called `Send Mail`.
 
-* Figure 1. The landing page to the app with login button.
-* Figure 2. Login to the app, if not already logged in.
-* Figure 3. Approve or decline the app that will send mail on your behalf.
-* Figure 4. Craft a message, enter the email address of the recipient, or the username.
-  * This would lead the recipient to [App's request address on behalf of user]
-* Figure 5. View pending messages.
-  * If the user doesn't have an account they will be prompted to make an account.
-  * If the user has auto-approved messages from you as a user, or auto-accepts mail from this app it will be auto accepted.
+1. The landing page to the `Third-Party-App` with login button.
+2. Login to the `App`, if not already logged in.
+3. Approve or decline the `Third-Party-App` that will send mail on your behalf.
+4. Craft a message, enter the email address of the recipient, or the `User`.
+  * These Events lead to [`User`-to-`User` Authorize](#user-to-user-authorize)
+5. View pending messages.
+  * If the `User` doesn't have an account they will be prompted to make an account.
+  * If the `User` has auto-approved messages from you as a user, or auto-accepts mail from this app it will be auto accepted.
   * If the status of a message is approved then the senders address is in the system and mail can be sent. Pay to send it.
 
-This app would allow a user to send another user mail without the sender ever getting hold of the recipients address. I thought of this app in tandem with a physical business. The idea being that the creator of this app would be the proxy between the two users. They would be a third party that does the mailing for a customer. All that's really needed to pull this off is a list of all letters to mail for the day, a box of [envelopes with two plastic windows](http://i.imgur.com/6wFDumi.jpg) and a ream of 8.5"x11" paper. Using the api the creator can export a all the PDF letters for a day, fold the, stamp the envelopes, and mail them. In this case someone would need to pay the app creator to mail the letter. If under some promotion this may be able to be to funded by the Fan's recipient in bulk. Say Neil Degrasse Tyson or Bill Nye was running a promotion (ideally taking questions about scientific inquiries) then all mail to him would be paid for by a third party and not the sender.
-
-There are also less involved ways of sending physical mail, there are many api's that already exist that allow you to do it.
-
-This app could also be harnessed to send people in your contacts (that you have the email of).
+This `Third-Party-App` would allow a `User` to send another `User` mail without the sender ever getting hold of the recipients address. I thought of this app in tandem with a physical business. The idea being that the creator of this `Third-Party-App` would be the proxy mail between the two users. This `Third-Party-App` would do the mailing on behalf of a customer. All that's really needed to pull this off is a list of all letters to mail for the day, a box of [envelopes with two plastic windows](http://i.imgur.com/6wFDumi.jpg) and a ream of 8.5"x11" paper. Using the `App-Api` the creator can export a all the PDF letters for a day, fold the, stamp the envelopes, and mail them. In this case someone would need to pay the `Third-Party-App` creator to mail the letter. If under some promotion this may be able to be to funded by the Fan's recipient in bulk. Say Neil Degrasse Tyson or Bill Nye was running a promotion (ideally taking questions about scientific inquiries) then all mail to him would be paid for by a third party and not the sender. There are also less involved ways of sending physical mail, there are many api's that already exist that allow you to do it. This `Third-Party-App` could also be harnessed to send people in your contacts (that you have the email of).
 
 ```
 +---------------------------+   +---------------------------+   +---------------------------+   +---------------------------+   +---------------------------+
@@ -268,50 +260,32 @@ This app could also be harnessed to send people in your contacts (that you have 
 +---------------------------+   +---------------------------+   +---------------------------+   +---------------------------+   +---------------------------+
 ```
 
-### App's request address on behalf of user
-
-This is an example where the app the `Mail App` is requesting to access an address for an `App` `Send Mail` on behalf of the `User` `thomasreggi`.
-
-* Figure 1. User receiving email message to provide access to app on behalf of user. (the user of the app will never see the address)
-* Figure 2. Login to the app, if not already logged in.
-* Figure 3. Approve and select address or deny request.
-
-```
-+---------------------------+   +---------------------------+   +---------------------------+
-|gmail.com                  |   |Mail App: Login            |   |Mail App: Authorize        |
-+---------------------------+   +---------------------------+   +---------------------------+
-|    |                      |   |                           |   |    app SENDMAIL wants     |
-|    | app SENDMAIL         |   | Username:                 |   |    to access your         |
-|    | would like to        |   | +-----------------------+ |   |    address on behalf of   |
-|    | access your address  |   | +-----------------------+ |   |    thomasreggi            |
-|    | on behalf of         |==>| Password:                 |==>|                           |
-|    | thomasreggi          |   | +-----------------------+ |   |  * [approve]              |
-|    |                      |   | +-----------------------+ |   |  - [address dropdown]     |
-|    | [login]              |   |                           |   |  - [auto-accept requests] |
-|    |                      |   |      [sign-up] or [login] |   |  * [decline]              |
-|    |                      |   |                           |   |                           |
-+----+----------------------+   +---------------------------+   +---------------------------+
-```
-
-### Else not shown here
-
-* Creating an app
-* Validating a url
-
 ## API
 
 Here's a bit of technical flow of how I'd see the API working. But first a primer on what we're collecting.
 
-There are two main distinctions about the app.
+There are two main distinctions about the `App`.
 
-1. This is an app that allows a user to store their address in one centralized place.
-2. This is an app that allows a user to store addresses and keep track of what mail they're getting.
+1. This is a service that allows a user to store their address in one centralized place.
+2. This is a service that allows a user to store addresses and keep track of what mail they're getting.
 
-There's a lot of phrasing like `wants to access you address` above, or `would like to access your address`. But why? Why would anyone want your address? It's most-likley to send you something. The idea is that instead of just innocently accessing an address the wording should probably be changed to `wants to send you something`. Reguardless of the wording there's another psychological hump my developer brain needs to get over. Why would an app say `jcrew.com` request your address more than once? Once they have it they can do whatever they want with it. They can even sell it to another third party. The only reason I can rationally think they'd need to request it again is to see if the address has been changed. This is perfectly valuable. If we're collecting information every time they make a request to get the address about why the third-party needs. Then we have information about every pacakge, parcel, or letter a person is receiving. Most importantly we have real-time data.
+There's a lot of phrasing like `wants to access you address` above, or `would like to access your address`. But why? Why would anyone want your address? It's most-likley to send you something. The idea is that instead of just innocently accessing an address the wording should probably be changed to `wants to send you something`. Regardless of the wording there's another psychological hump my developer brain needs to get over. Why would an site like `jcrew.com` request your address more than once? Once they have it they can do whatever they want with it. They can even sell it to another third party. The only reason I can rationally think they'd need to request it again is to see if the address has been changed. This is perfectly valuable. If we're collecting information every time they make a request to get the address about why the third-party needs. Then we have information about every package, parcel, or letter a person is receiving. Most importantly we have real-time data.
 
-The way I see it is the app would be a bit of both. In the case for user-to-user address request I'm not gonna log back in and update that I sent you something. I'm just gonna take the address and run. But in the case of an e-commerce app, it's not that much more work to send information programatically.
+The way I see it is the service would be a bit of both. In the case for user-to-user address request I'm not gonna log back in and update that I sent you something. I'm just gonna take the address and run. But in the case of an e-commerce store, it's not that much more work to send information programmatically.
 
-Here's what all this looks like in an api.
+### What is a `webhook`?
+
+Before we dive in I just wanted to define `webhook`. A `webhook` allows for a `Third-Party-App` to subscribe to a specific event. What does that mean?
+
+A `Third-Party-App` is software that runs on a server. It could have urls like `/api/subscribe-webhook/address.json` and whenever someone (or another server) visits that page the `Third-Party-App` knows, and can run specific software. So essentially a `webhook` is a way for two servers to talk to each other securely.
+
+Let me give an analogy.
+
+Let's say your a `comic book aficionado` and you always like to get the most recent comic book from the `comic book shop` as soon as it arrives. You pickup the telephone and tell the clerk give me a call whenever an issue of a specific comic comes in (lets say `superman`). The clerk says, alright, will do, and hangs up the phone. You wait patiently with you phone on and close by for a call. Ring! Ring! You pickup the phone, and it's the clerk and he tells you there's a new comic in issue #23 just arrived.
+
+In this analogy the `comic book aficionado` is the `Third-Party-App`, the `comic book shop` is the `App`. The act of pickup on the phone telling the clerk what comic you'd like is called `subscribing to a webhook` the webhook itself is `superman`. The clerk saying alright is subscribing being a success. You waiting patiently is the `Third-Party-Apps` having a open url and being able to accept requests to it's server. You picking up the phone is the `Third-Party-App` responding to the `webhook` request. Lastly the clerk telling you what issue is the `webhook payload`.
+
+What's the alternative to this anology? If `the comic book shop` clerk wasn't so nice to give you a call, and they still had a telephone. You would have to call everyday, perhaps even multiple times a day. That's pretty inefficient. When it's code you can make these kinds of requests a thousand times a minute, this means a lot of requests come bay with no new data. This is what most servers and still do back when RSS was all the rage.
 
 ### Send mail: `get address` request
 
@@ -319,11 +293,11 @@ When a third party requests an address for instance on the checkout page of a st
 
 #### Buffer Time
 
-Remember when I  mentioned `buffer time` the time that it takes for a store, vendor, supplier to ship something? This is where that comes in. If you go to flows for `App Login: E-Commerce Checkout` and see `figure 3` the `buffer time` would be displayed to the user there, it would say something like. You have 3 days to change your addres.
+Remember when I  mentioned `buffer time` the time that it takes for a store, vendor, supplier to ship something? This is where that comes in. If you go to mockup for [`Site` to `User` Request-Authorize](#site-to-user-request-authorize) the `buffer time` would be displayed to the user in page 3, it would say something like. You have 3 days to change your address.
 
-This all allows for the following. When an address is updated by the user then they will be shown a list of authorized sites and apps where the buffer time is still open, a webhook can be sent to these apps. For example if I buy something from `jcrew.com` and use this app, submit my address and feel like changing my address from my `home` to the `office` retro-activley after purchase, I can do so if there is still buffer time.
+This all allows for the following. When an address is updated by the user then they will be shown a list of authorized `Third-Party-Apps` (and `Sites`) where the `buffer time` is still open, a `webhook` can be sent to these `Third-Party-Apps` (and `Sites`). For example if I buy something from `jcrew.com` and use the `App`, submit my address and feel like changing my address from my `home` to the `office` retro-activley after purchase, I can do so if there is still buffer time.
 
-Again this would only work if the app has `buffer_time` and is subscribed to update address webhook.
+Again this would only work if the `Third-Party-App` has `buffer_time` enabled and is subscribed to update address `webhook`.
 
 #### Message
 
@@ -351,11 +325,11 @@ Response:
 
 ### Send mail: `mail sent` request
 
-The `mail sent` request must be sent sometime following a `get address` request. An app or site will not be able to request an updated address untill they send this request.
+The `mail sent` request must be sent sometime following a `get address` request. An`Third-Party-App` (or `Site`) will not be able to request an updated address until they send this request.
 
 #### Id
 
-Id is a required field, the app or site must store the id and use it for this.
+`Id` is a required field, the `App` or site must store the id and use it for this.
 
 #### Tracking information
 
@@ -384,13 +358,13 @@ Response:
 
 ### Managing parcel / address requests
 
-From this menu you can access each request ideally filter out some of this infromation so you can better manage it.
+From this menu you can access each request ideally filter out some of this information so you can better manage it.
 
 Features:
 
 * filter out information from each request
-* Search for specific user / site / app
-* If buffer time is available be able to route the parcel to another address.
+* Search for specific `User` / `Site` / `App`
+* If `buffer time` is available be able to route the parcel to another address.
 
 ```
 - Site "jcrew.com" requested your latest address.
@@ -435,7 +409,7 @@ If I edit one, I would see the following.
 
 ```
 (- Edit address form shown)
-(If there is available app / site with buffer time this would show)
+(If there is available `Third-Party-App` (or `Site`) with `buffer time` this would show)
 - This will send a reqeust to update your address across the following sites.
   - Site "jcrew.com" parcel "Red pants" with buffer time of 2 hours 3 minutes
   - Site "ebay.com" for user "iSelliPhone" parcel "iphone 19" with buffer time of 1 hour 29 minutes
@@ -449,7 +423,7 @@ If I want to delete one I'd have to map the old address to another existing one.
   * "Home"
   * "Parents House" < Select
 
-(If there is available app / site with buffer time this would show as well)
+(If there is available `Third-Party-App` (or `Site`) with `buffer time` this would show)
 
 - This will send a reqeust to update your address across the following sites.
   - Site "jcrew.com" parcel "Red pants" with buffer time of 2 hours 3 minutes
@@ -457,4 +431,4 @@ If I want to delete one I'd have to map the old address to another existing one.
   >>> [update]
 ```
 
-Now all requests for "Office" will go to "Parents House". Note that webhooks aren't sent to every authorized app / site on delete and update. Webhooks would only be sent to apps / sites that have webhooks enabled and in which there is a buffer time for a specific product.
+Now all requests for "Office" will go to "Parents House". Note that `webhooks` aren't sent to every authorized `Third-Party-App` (and `Site`) on delete and update. Webhooks would only be sent to `Third-Party-Apps` (and `Sites`) that have `webhooks` enabled and in which there is a `buffer time` for a specific product.
