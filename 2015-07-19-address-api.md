@@ -324,7 +324,7 @@ Response:
 ```
 
 
-### `mail_sent.json`
+### `/mail_sent.json`
 
 The `mail sent` request must be sent sometime following a `get address` request. An`Third-Party-App` (or `Site`) will not be able to request an updated address until they send this request.
 
