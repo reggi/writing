@@ -1,16 +1,18 @@
-# Centralized place for your addresses and mail
+# Centralized Place for Your Addresses and Mail
 
 > tl;dr Idea for a web app that allows you to login and save your address. Then have the ability to connect your addresses across multiple sites in a centralized fashion. Think facebook connect for addresses. Every site that needs your address (this e-commerce) would have a "connect" button that would authorize access to a specific address. Third-party apps would request your latest address whenever they want to send you something.
 
 The web is a vibrant and thriving place. While there may be a ton of advancement happening every day to make our lives easier, some of the things we do everyday are still traditional and repetitive. One of those things is managing and distributing our physical addresses. How can we make managing addresses easier across the entire web? This document is a specification of how there could be a service to help rectify this very issue.
 
-## Problems to solve
+## Problems
 
-The first major problem is that every site stores your address on it's own servers. That means it's decentralized. Let's say you move where you live, you can't just update your address in one place and have this change for every site.
+1. Every site stores your address on it's own servers. That means it's decentralized. Let's say you move where you live, you can't just update your address in one place and have this change for every site.
 
-The second major problem is tied to the first. When you place an order online, if you enter the wrong address (which would happen less frequently with this service) you have an allotted amount of time before that order ships, I call this time the `buffer time`. This service aims to help manage this with a high level of efficiency and detail. Currently the only way to change an address on most sites is to get in touch with a person directly, and have them do some manual process to update an address.
+2. When you place an order online, if you enter the wrong address (which would happen less frequently with this service) you have an allotted amount of time before that order ships, I call this time the `buffer time`. This service aims to help manage this with a high level of efficiency and detail. Currently the only way to change an address on most sites is to get in touch with a person directly, and have them do some manual process to update an address.
 
-The third major problem is privacy. With this app you'll be able to list who has had access to an address, when, what address, and how frequently. You can even block other users, apps, or sites, from requesting your address.
+3. Privacy. With this app you'll be able to list who has had access to an address, when, what address, and how frequently. You can even block other users, apps, or sites, from requesting your address.
+
+4. Have you ever wanted to send someone physical mail and you didn't know their address? This solves that, for everyone, and eventually it might not be weird. Once they recipient has their address in the system, they never have to write it again. Only approve access to other users.
 
 ## Contents
 
