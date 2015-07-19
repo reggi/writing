@@ -47,6 +47,7 @@ The web is a vibrant and thriving place. While there may be a ton of advancement
 - [Dashboard](#dashboard)
   - [Managing parcel / address requests](#managing-parcel--address-requests)
   - [Managing addresses](#managing-addresses)
+- [Conclusion](#conclusion)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -434,4 +435,19 @@ If I want to delete one I'd have to map the old address to another existing one.
   >>> [update]
 ```
 
-Now all requests for "Office" will go to "Parents House". Note that `webhooks` aren't sent to every authorized `Third-Party-App` (and `Site`) on delete and update. Webhooks would only be sent to `Third-Party-Apps` (and `Sites`) that have `webhooks` enabled and in which there is a `buffer time` for a specific product.
+Now all requests for "Office" will go to "Parents House". Note that `webhooks` aren't sent to every authorized `Third-Party-App` (and `Site`) on delete and update. `Webhooks` would only be sent to `Third-Party-Apps` (and `Sites`) that have `webhooks` enabled and in which there is a `buffer time` for a specific product.
+
+
+## Conclusion
+
+I, like many this day and age, love the idea of modularizing everything, breaking things up into tiny manageable bits, rather then a full-fledged large system. Does the same go for your data and the things we do online? I for one don't wanna put my address in every time I need to purchase something. Most browsers and lastpass have form-fillers where you can save your address and auto populate it, this doesn't help with globally updating, but it works. Then there's the awkward-ness of asking someone for their address. How do you do that if you have to ask 100 people for their address to send them a wedding invitation? That's a simple weekend app waiting to happen.
+
+Do we want all this data in one place? The last thing we want is someone getting hold of the addresses of a specific demographic of people, and doing something malicious. With this data all in one system, security is really important.
+
+Why hasn't this been done yet? Is it not all the way there? Is it not worth just managing addreses? Google, Facebook, Amazon could all easily implement this and it would be adopted fast.
+
+Is there no money in the idea? I'm not sure about this one, yes you're providing a vast network capable of supplying data to most of the web. With that data comes a lot of information.
+
+Is there no interest in addresses? Because I think the contrary, especially with the prospect of drones flying around delivering packages for people. Imagine an in-flight re-route message to a drone carrying a package? That would be pretty cool.
+
+Well I'm going to leave this here and think about it. I'm open to feedback and ideas. [@thomasreggi](https://twitter.com/thomasreggi)
