@@ -6,7 +6,7 @@ I would love to get the console.logs that the browser receives, but within the t
 
 I created one using `jsdom` with help from [@domenic and @Sebmaster](https://github.com/tmpvar/jsdom/pull/991#issuecomment-76562375).
 
-```
+```js
 var fs = require("fs")
 var jsdom = require("jsdom")
 var argv = require('minimist')(process.argv.slice(2));
@@ -25,7 +25,7 @@ window.document.body.appendChild(scriptEl);
 
 and another with PhantomJS with help from [stackoverflow: Headless Browserify JavaScript Testing with Phantom.js](http://stackoverflow.com/questions/28788253/headless-browserify-javascript-testing-with-phantom-js)
 
-```
+```js
 var system = require("system")
 var webPage = require('webpage')
 var page = require('webpage').create()
