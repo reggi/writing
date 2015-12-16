@@ -13,7 +13,7 @@ My dream would be the ability to create a component like this:
 
 _Javascript_ : format-date.js
 
-```
+```js
 import Polymer from "polymer"
 import moment from "moment"
 
@@ -25,7 +25,7 @@ Polymer("format-date", {
 ```
 _Template_ : format-date.html
 
-```
+```js
 <polymer-element name="format-date" attributes="time">
   <template>
     {{ time }}
@@ -36,7 +36,7 @@ _Template_ : format-date.html
 
 _Usage_ 
 
-```
+```js
 <format-date time="010215"></format-date>
 ```
 
@@ -54,7 +54,7 @@ I hit a wall where Babelify and browserify-shim didn't play well together. I pos
 
 Ideally I can get past the wall described above and have some scripts in `pacakge.json` that do this:
 
-```
+```js
 "scripts": {
     "vulcanize": "vulcanize format-date.html --inline --csp vulcanize.js",
     "browserify": "browserify vulcanized.js -t [browserify-shim babel] > main.js",
